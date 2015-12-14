@@ -1,0 +1,36 @@
+[submodule ".vim/bundle/editorconfig-vim"]
+	path = .vim/bundle/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/powerline"]
+	path = .vim/bundle/powerline
+	url = https://github.com/powerline/powerline.git
+[submodule ".vim/bundle/vim-go"]
+	path = .vim/bundle/vim-go
+	url = git@github.com:fatih/vim-go.git
+[submodule ".vim/bundle/vim-chef"]
+	path = .vim/bundle/vim-chef
+	url = git@github.com:dougireton/vim-chef.git
+[submodule ".vim/bundle/vim-polyglot"]
+	path = .vim/bundle/vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot.git
+[submodule ".vim/bundle/vim-easymotion"]
+	path = .vim/bundle/vim-easymotion
+	url = git@github.com:easymotion/vim-easymotion.git
+[submodule ".vim/bundle/surround.vim"]
+	path = .vim/bundle/surround.vim
+	url = git@github.com:tpope/vim-surround.git
+[submodule ".vim/bundle/fugitive.vim"]
+	path = .vim/bundle/fugitive.vim
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule ".vim/bundle/jdaddy.vim"]
+	path = .vim/bundle/jdaddy.vim
+	url = git@github.com:tpope/vim-jdaddy.git
+[submodule ".vim/bundle/commentary.vim"]
+	path = .vim/bundle/commentary.vim
+	url = git@github.com:tpope/vim-commentary.git
+[submodule ".vim/bundle/unimpaired.vim"]
+	path = .vim/bundle/unimpaired.vim
+	url = git@github.com:tpope/vim-unimpaired.git
