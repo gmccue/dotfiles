@@ -1,8 +1,8 @@
-execute pathogen#infect()
+packloadall
 
-" Use the Solarized Dark theme
+" Use the Badwolf theme
 set background=dark
-colorscheme solarized
+colorscheme badwolf
 let g:solarized_termtrans=1
 
 " Make Vim more useful
@@ -48,8 +48,8 @@ set number
 syntax on
 " Highlight current line
 set cursorline
-" Make tabs as wide as four spaces
-set tabstop=4
+" Make tabs as wide as two spaces
+set tabstop=2
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
@@ -77,11 +77,6 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-" Use relative line numbers
-"if exists("&relativenumber")
-"	set relativenumber
-"	au BufReadPost * set relativenumber
-"endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
@@ -107,6 +102,17 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
+" Easymotion settings
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-s)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Toggle NERDTree
+map <Leader>d :NERDTreeToggle<CR>
+
 " The Silver Searcher (http://robots.thoughtbot.com/faster-grepping-in-vim)
 if executable('ag')
   " Use ag over grep
@@ -126,32 +132,5 @@ command -nargs=* -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" Map autocomplete to tab
-imap <Tab> <C-N>
-
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
-
-" Easymotion settings
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap s <Plug>(easymotion-s)
-let g:EasyMotion_smartcase = 1
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Leader commands
-" Edit the readme
-map <Leader>R :e ./README.md
-" Toggle NERDTree
-map <Leader>d :NERDTreeToggle<CR>
-
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim

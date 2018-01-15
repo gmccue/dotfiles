@@ -34,3 +34,24 @@
 [submodule ".vim/bundle/unimpaired.vim"]
 	path = .vim/bundle/unimpaired.vim
 	url = git@github.com:tpope/vim-unimpaired.git
+[submodule ".vim/pack/git-plugins/start/vim-airline"]
+	path = .vim/pack/git-plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/git-plugins/start/ctrlp.vim"]
+	path = .vim/pack/git-plugins/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule ".vim/pack/git-plugins/start/nerdtree"]
+	path = .vim/pack/git-plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule ".vim/pack/git-plugins/start/vim-surround"]
+	path = .vim/pack/git-plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule ".vim/pack/git-plugins/start/ale"]
+	path = .vim/pack/git-plugins/start/ale
+	url = https://github.com/w0rp/ale
+[submodule ".vim/pack/git-plugins/start/vim-airline-themes"]
+	path = .vim/pack/git-plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".vim/pack/git-plugins/start/vim-easymotion"]
+	path = .vim/pack/git-plugins/start/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion
