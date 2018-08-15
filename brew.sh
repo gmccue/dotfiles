@@ -78,16 +78,21 @@ brew install xz
 # Install MacVim
 brew install macvim --with-python-3 --with-custom-icons --override-system-vim
 
+# Install python tools
+brew install autopep8
+brew install pycodestyle
+brew install pyenv
+
 # Install binaries with brew-cask
 brew tap caskroom/cask
 brew install brew-cask-completion
 
 function installcask() {
-    if brew cask info "${@}" | grep "Not installed" > /dev/null; then
-        brew cask install "${@}"
-    else
-        echo "${@} is already installed."
-    fi
+  if brew cask info "${@}" | grep "Not installed" > /dev/null; then
+    brew cask install "${@}"
+  else
+    echo "${@} is already installed."
+  fi
 }
 
 installcask alfred
@@ -95,10 +100,13 @@ installcask firefox
 installcask google-chrome
 installcask google-chrome-canary
 installcask iterm2
+installcask minikube
 installcask postman
 installcask skype
 installcask spectacle
 installcask spotify
+installcask virtualbox
+installcask zoomus
 
 # Install other useful binaries.
 brew install ack

@@ -185,3 +185,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[gpg]
+
+	program = /usr/local/bin/gpg
