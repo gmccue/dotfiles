@@ -1,9 +1,72 @@
-packloadall
+" Install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Use the Badwolf theme
+" Install plugins
+call plug#begin('~/.vim/plugged')
+
+" Colors
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'cocopon/iceberg.vim'
+Plug 'tomasr/molokai'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'w0ng/vim-hybrid'
+
+" Editing
+Plug 'honza/dockerfile.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+" Linting
+Plug 'hhatto/autopep8'
+Plug 'PyCQA/pycodestyle'
+Plug 'w0rp/ale'
+
+" Language specific
+if v:version >= 703
+  Plug 'guns/vim-clojure-static'
+  Plug 'guns/vim-clojure-highlight'
+  Plug 'guns/vim-slamhound'
+  Plug 'kovisoft/paredit', { 'for': 'clojure' }
+  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+  Plug 'venantius/vim-cljfmt'
+endif
+Plug 'fatih/vim-go'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
+
+" NERDTree
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+augroup nerd_loader
+ autocmd!
+ autocmd VimEnter * silent! autocmd! FileExplorer
+ autocmd BufEnter,BufNew *
+       \  if isdirectory(expand('<amatch>'))
+       \|   call plug#load('nerdtree')
+       \|   execute 'autocmd! nerd_loader'
+       \| endif
+augroup END
+
+call plug#end()
+
+" Use the molokai theme
 set background=dark
-colorscheme badwolf
+colorscheme molokai
 let g:solarized_termtrans=1
+
+" From vim-sensible
+set autoindent
+set autoread
+set complete-=i
+set smarttab
 
 " Make Vim more useful
 set nocompatible
@@ -50,6 +113,7 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
+set softtabstop=2
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
@@ -101,6 +165,16 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+" ALE settings
+let g:ale_linters = {'java': [], 'yaml': [], 'scala': [], 'clojure': [], 'python': ['pycodestyle']}
+let g:ale_fixers = {'python': ['autopep8'], 'ruby': ['rubocop']}
+let g:ale_lint_delay = 1000
+let g:ale_sign_warning = '──'
+let g:ale_sign_error = '══'
+
+nmap ]a <Plug>(ale_next_wrap)
+nmap [a <Plug>(ale_previous_wrap)
 
 " Easymotion settings
 " Disable default mappings
